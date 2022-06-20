@@ -23,8 +23,7 @@ const  userPeople = [
 	    data : '05/25/2022',		
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
 		image : 'https://unsplash.it/300/300?image=3',
-		like : 80 ,
-		
+		like : 80 ,		
 	},
 
 	{
@@ -34,8 +33,7 @@ const  userPeople = [
 	    data : '08/21/2022',		
 		image : 'https://unsplash.it/300/300?image=4',
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-		like : 80 ,
-		
+		like : 60 ,		
 	},
 
 	{
@@ -44,8 +42,7 @@ const  userPeople = [
 		foto : 'https://unsplash.it/300/300?image=20',
 	    data : '06/25/2022',		
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-		like : 80 ,
-		
+		like : 180 ,		
 	},
 
 	{
@@ -54,8 +51,7 @@ const  userPeople = [
 		foto : 'https://unsplash.it/300/300?image=24',
 	    data : '06/25/2022',		
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-		like : 80 ,
-		
+		like : 8680 ,		
 	},
 
 	{
@@ -65,8 +61,7 @@ const  userPeople = [
 	   	data : '06/25/2022',
 		image : 'https://unsplash.it/300/300?image=90',
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-		like : 80 ,
-		
+		like : 9980 ,		
 	},
 
 ];
@@ -108,4 +103,28 @@ for (let i = 0; i < userPeople.length; i++){
 	</div>            
 </div>`;
  containerPost.innerHTML += posts;
+ //Milestone 3 
+ //se clicco nel mi piace cambia colore testo e incrementa n like
+ let likeButton = document.querySelectorAll('.like-button');
+ for (let i = 0; i < likeButton.length; i++){
+	 const buttonLike = likeButton[i];
+ 
+	 buttonLike.addEventListener('click', function(event){
+		//fix defoult 
+		 event.preventDefault();
+		if (!this.classList.contains('cliked-class')){
+
+			  //aggiungo blu
+		  	  this.classList.add('cliked-class');
+			  //incremento like------------
+			  const idLike = i + 1;	
+		  	  const containerLike = document.getElementById('like-counter-' + idLike);
+		  	  userPeople[i].like += 1;
+		  	  containerLike.innerHTML = userPeople[i].like;
+		  	  this.listC.add('like-button--liked');
+		   	 //------------------------------
+		};	
+			}
+		);
+	};
 };
