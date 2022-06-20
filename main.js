@@ -20,11 +20,7 @@ const  userPeople = [
 		id : 1,
 		nome : 'Phil Mangione',
 		foto : 'https://unsplash.it/300/300?image=1',
-	    data : {
-			mese : 06,
-			giorno: 25,
-			anno: 2022,
-		} ,
+	    data : '05/25/2022',		
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
 		image : 'https://unsplash.it/300/300?image=3',
 		like : 80 ,
@@ -35,11 +31,7 @@ const  userPeople = [
 		id : 2,
 		nome : 'Sofia Perlari',
 		foto : 'https://unsplash.it/300/300?image=2',
-	    data : {
-			mese : 08,
-			giorno: 20,
-			anno: 2022,
-		} ,
+	    data : '08/21/2022',		
 		image : 'https://unsplash.it/300/300?image=4',
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
 		like : 80 ,
@@ -49,12 +41,29 @@ const  userPeople = [
 	{
 		id : 3,
 		nome : 'Phil Mortadella',
-		foto : '',
-	    data : {
-			mese : 02,
-			giorno: 02,
-			anno: 2022,
-		} ,
+		foto : 'https://unsplash.it/300/300?image=20',
+	    data : '06/25/2022',		
+		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+		like : 80 ,
+		
+	},
+
+	{
+		id : 4,
+		nome : 'Sonia Mortadella',
+		foto : 'https://unsplash.it/300/300?image=24',
+	    data : '06/25/2022',		
+		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+		like : 80 ,
+		
+	},
+
+	{
+		id : 5,
+		nome : 'Phil Mortadella',
+		foto : 'https://unsplash.it/300/300?image=20',
+	   	data : '06/25/2022',
+		image : 'https://unsplash.it/300/300?image=90',
 		testo : 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
 		like : 80 ,
 		
@@ -72,17 +81,17 @@ for (let i = 0; i < userPeople.length; i++){
 	<div class="post__header">
 		<div class="post-meta">                    
 			<div class="post-meta__icon">
-				<img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+				<img class="profile-pic" src="${card.foto}" alt="${'utente'}">                    
 			</div>
 			<div class="post-meta__data">
-				<div class="post-meta__author">Phil Mangione</div>
-				<div class="post-meta__time">4 mesi fa</div>
+				<div class="post-meta__author">${card.nome}</div>
+				<div class="post-meta__time">${card.data}</div>
 			</div>                    
 		</div>
 	</div>
-	<div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+	<div class="post__text">${card.testo}</div>
 	<div class="post__image">
-		<img src="https://unsplash.it/600/300?image=171" alt="">
+		<img src="${card.image}" alt="">
 	</div>
 	<div class="post__footer">
 		<div class="likes js-likes">
@@ -93,9 +102,10 @@ for (let i = 0; i < userPeople.length; i++){
 				</a>
 			</div>
 			<div class="likes__counter">
-				Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+				Piace a <b id="like-counter-${card.id}" class="js-likes-counter">${card.like}</b> persone
 			</div>
 		</div> 
 	</div>            
-</div>`
+</div>`;
+ containerPost.innerHTML += posts;
 };
